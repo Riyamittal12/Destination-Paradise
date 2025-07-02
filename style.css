@@ -1,0 +1,658 @@
+/* Enhanced Travel Website CSS with Modern Visual Effects */
+
+/* Add smooth scrolling and base enhancements */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+/* Restored original brand styling */
+.lemon-regular {
+    font-family: 'Tangerine', serif;
+    font-size: 45px;
+    font-weight: bolder;
+    text-shadow: 4px 4px 6px rgba(206, 21, 117, 0.5);
+    color: #4a0629;
+}
+
+/* Enhanced navbar with glassmorphism */
+.navbar {
+    background: rgba(245, 194, 220, 0.92) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar:hover {
+    background: rgba(245, 194, 220, 0.98) !important;
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+}
+
+/* Navbar layout */
+.navbar-nav {
+    justify-content: right;
+    width: 75%;
+}
+
+/* Enhanced navbar links */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #333 !important;
+    padding: 10px 15px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #ce1575, #f541b0);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 80%;
+}
+
+.nav-link:hover {
+    color: #ce1575 !important;
+    transform: translateY(-2px);
+}
+
+/* Enhanced dropdown with improved visibility */
+.dropdown-menu {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    top: 100% !important;
+    margin-top: 5px !important;
+    z-index: 2000; /* Increased z-index to ensure dropdown appears above other elements */
+    min-width: 200px;
+    padding: 10px 0;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 20px;
+    color: #333;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 2px 8px;
+    font-weight: 500;
+}
+
+.dropdown-item:hover {
+    background: linear-gradient(45deg, #f5c2dc, #ce1575);
+    color: #fff;
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(206, 21, 117, 0.2);
+}
+
+/* Enhanced carousel with modern effects */
+.carousel {
+    height: 520px;
+    margin: 3rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10; /* Ensure carousel is below dropdown */
+}
+
+.carousel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(245, 194, 220, 0.15));
+    pointer-events: none;
+    z-index: 1;
+}
+
+.carousel-item {
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-item img {
+    height: 520px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item.active img {
+    animation: subtleZoom 8s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* Enhanced carousel captions */
+.carousel-caption {
+    background: linear-gradient(135deg, rgba(84, 84, 84, 0.65), rgb(64, 64, 64));
+    backdrop-filter: blur(1px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px;
+    height: 60px;
+    background: rgba(245, 194, 220, 0.85);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(206, 21, 117, 0.95);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(206, 21, 117, 0.35);
+}
+
+/* Existing layout preserved */
+.home {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .home {
+       display: flex;
+       flex-direction: column;
+    }
+
+    .home-video-section, .home-packages-section {
+        width: 100%;
+    }
+
+    #circularVideo {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Enhanced packages section */
+.home-packages-section {
+    width: 70%;
+    padding: 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ce1575, #f541b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #ce1575, #f541b0);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.packages-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Enhanced package cards */
+.package {
+    width: 30%;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.package::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(245, 194, 220, 0.45), transparent);
+    transition: left 0.5s ease;
+}
+
+.package:hover::before {
+    left: 100%;
+}
+
+.package:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(206, 21, 117, 0.25);
+    border-color: rgba(206, 21, 117, 0.35);
+}
+
+.image-container {
+    margin: 0 auto;
+    width: 90%;
+    height: 7rem;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+    object-fit: cover;
+}
+
+.package:hover .image-container img {
+    transform: scale(1.1);
+}
+
+.package h3 {
+    margin-top: 1rem;
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+}
+
+.package p {
+    margin-top: 1rem;
+    font-size: 15px;
+    color: #666;
+}
+
+/* Enhanced button with gradient and effects */
+.book-now-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, rgb(245, 65, 176), #ce1575);
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(245, 65, 176, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.book-now-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.5s ease;
+}
+
+.book-now-btn:hover::before {
+    left: 100%;
+}
+
+.book-now-btn:hover {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.45);
+    color: white;
+    text-decoration: none;
+}
+
+/* Enhanced form styling */
+.form-title {
+    font-size: 24px;
+    margin: 1.2rem;
+    background: linear-gradient(45deg, #ce1575, #f541b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+.form-label {
+    font-weight: bold;
+    font-size: smaller;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+#bookingForm .form-label {
+    margin-left: 5px;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#bookingForm .form-control, 
+#bookingForm .form-select {
+    border-radius: 10px;
+    border: 2px solid #e1e5e9;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+#bookingForm .form-control:focus, 
+#bookingForm .form-select:focus {
+    border-color: #f541b0;
+    box-shadow: 0 0 0 0.2rem rgba(245, 65, 176, 0.3);
+    transform: translateY(-2px);
+}
+
+#bookingForm .btn-form {
+    background: linear-gradient(45deg, rgb(245, 65, 176), #ce1575);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(245, 65, 176, 0.35);
+}
+
+#bookingForm .btn-form:hover {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.45);
+}
+
+.phonenumber .form-select,
+.phonenumber .form-control {
+    flex: 1;
+}
+
+.phonenumber .form-select {
+    max-width: 40%;
+}
+
+.phonenumber .form-control {
+    flex-grow: 2;
+}
+
+/* Enhanced success message */
+.success-feedback {
+    display: none;
+    color: #28a745;
+    margin-top: 10px;
+    padding: 10px;
+    background: linear-gradient(45deg, rgba(40, 167, 69, 0.15), rgba(40, 167, 69, 0.1));
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    animation: successSlide 0.5s ease-out;
+}
+
+@keyframes successSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive enhancements preserved */
+@media (max-width: 768px) {
+    .home-form-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .package {
+        width: 100%;
+    }
+    
+    #bookingForm {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@media (min-width: 768px) {
+    #bookingForm {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .home-form-section {
+        width: 30%;
+        text-align: center;
+        border: 0;
+        border-right: 2px solid rgba(175, 167, 167, 0.3);
+        padding: 2px;
+        position: relative;
+    }
+    
+    .home-form-section::after {
+        content: '';
+        position: absolute;
+        right: -1px;
+        top: 10%;
+        height: 80%;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, #f541b0, transparent);
+    }
+}
+
+/* Enhanced about section */
+.about-container {
+    padding: 50px 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(245, 194, 220, 0.15));
+    text-align: center;
+    position: relative;
+}
+
+.about-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23f541b0" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.about-title {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ce1575, #f541b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease;
+}
+
+.about-img:hover img {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.about-text {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-text h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.about-btn {
+    background: linear-gradient(45deg, rgb(245, 65, 176), #ce1575);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(245, 65, 176, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.5s ease;
+}
+
+.about-btn:hover::before {
+    left: 100%;
+}
+
+.about-btn:hover {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.45);
+    text-decoration: none;
+}
+
+/* Enhanced headings */
+h5 {
+    font-size: xx-large;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.35);
+    color: #fff;
+}
+
+p {
+    font-style: italic;
+}
+
+/* Add floating animation for decorative elements */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #f541b0, #ce1575);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ce1575, #a01159);
+}
